@@ -1,0 +1,10 @@
+# ninja log v5
+2	432	7262415773019880	source/CMakeFiles/Simulation_of_the_station_operation.dir/main.cpp.obj	9b99931847df6625
+2	440	7262415201285976	source/CMakeFiles/Simulation_of_the_station_operation.dir/train.cpp.obj	1ff9ad62c142919
+433	842	7262415777052322	source/Simulation_of_the_station_operation.exe	9000c0c46daf69ef
+1	374	7262417296870175	build.ninja	2e78f18439bc5fbe
+2	434	7262417302046505	source/CMakeFiles/Simulation_of_the_station_operation.dir/train.cpp.obj	1ff9ad62c142919
+434	844	7262417306080327	source/Simulation_of_the_station_operation.exe	9000c0c46daf69ef
+8	594	7262419938732922	source/CMakeFiles/Simulation_of_the_station_operation.dir/train.cpp.obj	1ff9ad62c142919
+2	607	7262419938923810	source/CMakeFiles/Simulation_of_the_station_operation.dir/main.cpp.obj	9b99931847df6625
+607	1067	7262419943471639	source/Simulation_of_the_station_operation.exe	9000c0c46daf69ef

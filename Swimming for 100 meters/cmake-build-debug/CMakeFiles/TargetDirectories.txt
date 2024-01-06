@@ -1,0 +1,5 @@
+C:/Users/Илья/Desktop/Skb 27 - 40/28-practical/Swimming for 100 meters/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Илья/Desktop/Skb 27 - 40/28-practical/Swimming for 100 meters/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Илья/Desktop/Skb 27 - 40/28-practical/Swimming for 100 meters/cmake-build-debug/source/CMakeFiles/Swimming_for_100_meters.dir
+C:/Users/Илья/Desktop/Skb 27 - 40/28-practical/Swimming for 100 meters/cmake-build-debug/source/CMakeFiles/edit_cache.dir
+C:/Users/Илья/Desktop/Skb 27 - 40/28-practical/Swimming for 100 meters/cmake-build-debug/source/CMakeFiles/rebuild_cache.dir

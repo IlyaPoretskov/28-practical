@@ -1,0 +1,6 @@
+# ninja log v5
+9	977	7262497329116295	source/CMakeFiles/Simulation_of_an_online_restaurant_kitchen.dir/kitchen.cpp.obj	5c31ba3ea2843b84
+1	990	7262497329247060	source/CMakeFiles/Simulation_of_an_online_restaurant_kitchen.dir/main.cpp.obj	df48c4faa83c1a64
+991	1569	7262497334915015	source/Simulation_of_an_online_restaurant_kitchen.exe	dc5f00acc564d8a0
+3	629	7262498205312529	source/CMakeFiles/Simulation_of_an_online_restaurant_kitchen.dir/kitchen.cpp.obj	5c31ba3ea2843b84
+630	1096	7262498209932721	source/Simulation_of_an_online_restaurant_kitchen.exe	dc5f00acc564d8a0

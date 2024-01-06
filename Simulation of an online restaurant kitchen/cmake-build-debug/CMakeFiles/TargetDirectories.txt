@@ -1,0 +1,5 @@
+C:/Users/Илья/Desktop/Skb 27 - 40/28-practical/Simulation of an online restaurant kitchen/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Илья/Desktop/Skb 27 - 40/28-practical/Simulation of an online restaurant kitchen/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Илья/Desktop/Skb 27 - 40/28-practical/Simulation of an online restaurant kitchen/cmake-build-debug/source/CMakeFiles/Simulation_of_an_online_restaurant_kitchen.dir
+C:/Users/Илья/Desktop/Skb 27 - 40/28-practical/Simulation of an online restaurant kitchen/cmake-build-debug/source/CMakeFiles/edit_cache.dir
+C:/Users/Илья/Desktop/Skb 27 - 40/28-practical/Simulation of an online restaurant kitchen/cmake-build-debug/source/CMakeFiles/rebuild_cache.dir
