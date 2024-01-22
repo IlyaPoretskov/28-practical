@@ -1,8 +1,10 @@
 #include <kitchen.h>
 
-std::mutex kitchen;
-std::mutex courier;
+std::mutex mKitchen;
+std::mutex mCourier;
 std::mutex cou;
+std::queue<Order*> qR;
+std::queue<Order*> qK;
 
 int randRange(int start, int end)
 {
@@ -30,7 +32,7 @@ std::string Order::getTypeOrder() const
         case Steak:  return "Steak";
         case Salad:  return "Salad";
         case Sushi:  return "Sushi";
-        case DCount: break;
+        case DCount: return "Finished!";
     }
     return "";
 }
@@ -40,19 +42,85 @@ Order::Order()
     dish = (Dish)randRange(Pizza, Sushi);
 }
 
-void orderWait(Order *order)
+bool Order::isFinish() const { return dish == DCount; }
+
+void kitchenWait()
 {
-    DisplayInfo("The order (" + order->getTypeOrder() + ") has been created\n");
+    for(;;) {
+        if (!qR.empty()) {
+            mKitchen.lock();
+            Order *order = qR.front();
+            qR.pop();
+            mKitchen.unlock();
+            if (order->isFinish()) {
+                mCourier.lock();
+                qK.push(order);
+                mCourier.unlock();
+                return;
+            }
+            DisplayInfo("The order (" + order->getTypeOrder() + ") is accepted to the kitchen\n");
 
-    kitchen.lock();
-    DisplayInfo("The order (" + order->getTypeOrder() + ") is accepted to the kitchen\n");
-    Pause(5, 15);
-    DisplayInfo("The order (" + order->getTypeOrder() + ") is ready\n");
-    kitchen.unlock();
+            Pause(5, 15);
 
-    courier.lock();
-    DisplayInfo("The order (" + order->getTypeOrder() + ") is accepted by the courier\n");
-    Pause(30, 30);
-    DisplayInfo("The order (" + order->getTypeOrder() + ") is delivered\n");
-    courier.unlock();
+            DisplayInfo("The order (" + order->getTypeOrder() + ") is ready\n");
+            mCourier.lock();
+            qK.push(order);
+            mCourier.unlock();
+        } else {
+            Pause(1, 1);
+        }
+    }
+}
+
+void courierWait()
+{
+    for(;;) {
+        if (!qK.empty()) {
+            mCourier.lock();
+            Order *order = qK.front();
+            qK.pop();
+            mCourier.unlock();
+
+            if (order->isFinish()) return;
+            DisplayInfo("The order (" + order->getTypeOrder() + ") is accepted by the courier\n");
+
+            Pause(30, 30);
+
+            DisplayInfo("The order (" + order->getTypeOrder() + ") is delivered\n");
+
+        } else {
+            Pause(1, 1);
+        }
+    }
+}
+
+void runKitchen() {
+    Order* orders[10];
+
+    std::thread kitchen(kitchenWait);
+    std::thread courier(courierWait);
+
+    for (auto order : orders)
+    {
+        order = new Order();
+        DisplayInfo("The order (" + order->getTypeOrder() + ") has been created\n");
+        mKitchen.lock();
+        qR.push(order);
+        mKitchen.unlock();
+
+        Pause(5, 10);
+    }
+
+    Order orderFinish;
+    orderFinish.setFinish();
+    mKitchen.lock();
+    qR.push(&orderFinish);
+    mKitchen.unlock();
+
+    kitchen.join();
+    courier.join();
+
+    for (auto order : orders) {
+        delete order;
+    }
 }
