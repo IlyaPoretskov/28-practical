@@ -1,4 +1,5 @@
 #include <kitchen.h>
+#define DEBUG 1
 
 std::mutex mKitchen;
 std::mutex mCourier;
@@ -8,6 +9,7 @@ std::queue<Order*> qK;
 
 int randRange(int start, int end)
 {
+    std::srand(std::time(nullptr));
     return std::rand() % (end - start + 1) + start;
 }
 
@@ -120,7 +122,10 @@ void runKitchen() {
     kitchen.join();
     courier.join();
 
+#if !DEBUG
+
     for (auto order : orders) {
         delete order;
     }
+#endif
 }
